@@ -22,7 +22,7 @@ const CountrySchema = mongoose.Schema({
   },
   currency: String,
   flag: String,
-  // languages: [],
+  languages: [],
 });
 
 module.exports = mongoose.model('Countrys', CountrySchema);
