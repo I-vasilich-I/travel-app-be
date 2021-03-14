@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const countries = await Country.find();
     res.json(countries)
   } catch (error) {
-    res.json({message: error});
+    res.json(error.message);
   }
 });
 
@@ -18,7 +18,7 @@ router.get('/:countryPath', async (req, res) => {
     const country = await (await Country.find()).filter((elem) => elem.path == req.params.countryPath);
     res.json(country);
   } catch (error) {
-    res.json({message: error});
+    res.json(error.message);
   }
 })
 
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
     const savedCountry = await country.save();
     res.json(savedCountry);
   } catch (error) {
-    res.json({ message: error});
+    res.json(error.message);
   }
 
   country.save()
@@ -61,7 +61,7 @@ router.post('/', async (req, res) => {
         res.json(data);
       })
       .catch(err => {
-        res.json({ message: err});
+        res.json(error.message);
       });
 })
 
