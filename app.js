@@ -4,10 +4,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const app = express();
+const { StatusCodes, ReasonPhrases } = require('http-status-codes');
 
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
+
+app.use('/favicon.ico', (req, res) => res.sendStatus(StatusCodes.NO_CONTENT));
 
 //Import Routes
 const countriesRoute = require('./routes/countries');
@@ -17,6 +20,11 @@ app.use('/countries', countriesRoute);
 app.get('/', (req, res) => {
   res.send('we are on home');
 });
+
+app.use((req, res) => {
+  res.status(StatusCodes.NOT_IMPLEMENTED).send(ReasonPhrases.NOT_IMPLEMENTED);
+});
+
 
 //Connect to DB
 mongoose.connect(
