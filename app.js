@@ -15,6 +15,8 @@ app.use('/favicon.ico', (req, res) => res.sendStatus(StatusCodes.NO_CONTENT));
 //Import Routes
 const countriesRoute = require('./routes/countries');
 app.use('/countries', countriesRoute);
+const placesRoute = require('./routes/places');
+app.use('/places', placesRoute);
 
 //ROUTES
 app.get('/', (req, res) => {
