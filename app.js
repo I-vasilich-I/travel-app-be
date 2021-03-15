@@ -17,6 +17,8 @@ const countriesRoute = require('./routes/countries');
 app.use('/countries', countriesRoute);
 const placesRoute = require('./routes/places');
 app.use('/places', placesRoute);
+const coordinatesRoute = require('./routes/coordinates');
+app.use('/coordinates', coordinatesRoute);
 
 //ROUTES
 app.get('/', (req, res) => {
