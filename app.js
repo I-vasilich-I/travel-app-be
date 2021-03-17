@@ -19,6 +19,8 @@ const placesRoute = require('./routes/places');
 app.use('/places', placesRoute);
 const coordinatesRoute = require('./routes/coordinates');
 app.use('/coordinates', coordinatesRoute);
+const login = require('./routes/login');
+app.use('/login', login);
 
 //ROUTES
 app.get('/', (req, res) => {
